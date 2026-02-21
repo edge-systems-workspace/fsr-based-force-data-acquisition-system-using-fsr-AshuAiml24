@@ -1,6 +1,6 @@
 #include <Arduino.h>
 /**
- * @file main.ino
+ * @file main.cpp
  * @brief Embedded Force Measurement System using FSR
  * @author ASHU PAL
  * @date YYYY-MM-
@@ -29,14 +29,9 @@ int fsrValue = 0;
  */
 
 void setup() {
-
     Serial.begin(9600);
     Serial.println("=== FSR Force Measurement System Initialized ===");
-
-
     // Initialize Serial communication (9600 baud rate)
-
-Serial.println("=== FSR Force Measurement System Initialized ===");}
     // Print system initialization message
 }
 /**
@@ -49,19 +44,16 @@ Serial.println("=== FSR Force Measurement System Initialized ===");}
  */
 
 void loop() {
+    fsrValue = analogRead(FSR_PIN);
 
-    // TODO 5:
-    // Read analog value from FSR
+    Serial.print("Raw ADC Value: ");
+    Serial.println(fsrValue);
 
-    // TODO 6:
-    // Print raw ADC value
+    if (fsrValue > 100) {
+        Serial.println("Pressure Detected!");
+    } else {
+        Serial.println("No Significant Pressure.");
+    }
 
-    // TODO 7:
-    // Apply simple threshold logic (e.g., detect pressure)
-
-    // TODO 8:
-    // Print pressure detection message
-
-    // TODO 9:
-    // Add delay (500ms or 1 second)
+    delay(500);
 }
