@@ -2,18 +2,22 @@
 /**
  * @file main.ino
  * @brief Embedded Force Measurement System using FSR
- * @author YOUR_NAME
- * @date YYYY-MM-DD
+ * @author ASHU PAL
+ * @date YYYY-MM-
  *
  * @details
  * Reads analog force data from FSR sensor and
  * displays structured output via Serial Monitor.
  */
 
- // TODO 1:
+#define FSR_PIN A0
+
+
+
+
  // Define FSR analog pin (Use A0)
 
- // TODO 2:
+int fsrValue = 0;
  // Create variable to store sensor reading
 
 void setup() {
